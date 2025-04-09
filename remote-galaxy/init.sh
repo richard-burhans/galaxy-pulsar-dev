@@ -18,5 +18,7 @@ log "Updating remote Galaxy venv for remote metadata"
 docker_run \
     -v "${GALAXY_ROOT}:/remote-galaxy:ro" \
     -v "${root}/remote-galaxy/venv:/remote-galaxy/.venv" \
+    -v "${root}/galaxy/config/galaxy.yml:/remote-galaxy/config/galaxy.yml:ro" \
+    -v "${root}/galaxy/config/job_conf.yml:/remote-galaxy/config/job_conf.yml:ro" \
     "$PULSAR_IMAGE" \
     bash ./scripts/common_startup.sh --skip-client-build

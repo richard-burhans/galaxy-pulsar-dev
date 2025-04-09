@@ -22,7 +22,7 @@ docker_run \
     -v "${PULSAR_ROOT}:/pulsar" \
     -v "${root}/pulsar/venv:/pulsar/.venv" \
     "$PULSAR_IMAGE" \
-    ./.venv/bin/pip install -e .
+    ./.venv/bin/pip install -e . --config-settings editable_mode=compat
 
 log "Installing Pulsar additional dependencies"
 docker_run \
